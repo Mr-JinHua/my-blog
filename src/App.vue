@@ -2,6 +2,18 @@
   <div id="app">
   	<div :class="{'unexpanded-left-bar': !this.isleftexpanded,'expanded-left-bar': true}" ref="leftBar">
   		<div class="left-bar-icon"/>
+			<div class="expanded-left-bar-btn">
+				<i class="el-icon-document el-icon-use" />
+				<span style="fontSize:20px">博客</span>
+			</div>
+			<div class="expanded-left-bar-btn">
+				<i class="el-icon-location el-icon-use" />
+				<span style="fontSize:20px">标签</span>
+			</div>
+			<div class="expanded-left-bar-btn">
+				<i class="el-icon-loading el-icon-use" />
+				<span style="fontSize:20px">慢爬</span>
+			</div>
   	</div>
   	<div 
   		:class="{'unexpanded-bar-btn': !this.isleftexpanded,'expanded-bar-btn': true}" 
