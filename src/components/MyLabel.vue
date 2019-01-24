@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <div>jin hua</div>
+    <div>my label</div>
     <div>jin hua</div><div>jin hua</div><div>jin hua</div>
     <div>jin hua</div><div>jin hua</div><div>jin hua</div>
     <div>jin hua</div><div>jin hua</div><div>jin hua</div>
@@ -30,7 +30,7 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'MyLabel',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
