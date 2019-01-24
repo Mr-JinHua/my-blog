@@ -2,7 +2,6 @@
   <div id="app">
   	<div :class="{'unexpanded-left-bar': !this.isleftexpanded,'expanded-left-bar': true}" ref="leftBar">
   		<div class="left-bar-icon"/>
-
 			<router-link to="/blog">
 				<div class="expanded-left-bar-btn">
 					<i class="el-icon-document el-icon-use" />
@@ -26,10 +25,15 @@
   		:class="{'unexpanded-bar-btn': !this.isleftexpanded,'expanded-bar-btn': true}" 
   		@click="useExpanded"
   	>
-			<i :class="{'el-icon-menu-turn': this.isleftexpanded,'el-icon-menu':true}" :style="{color:'white',fontSize:'25px'}"></i>
+			<i class="el-icon-menu" :class="{'el-icon-menu-turn': this.isleftexpanded}" :style="{color:'white',fontSize:'25px'}"></i>
 		</div>
   	<div :class="{'unexpanded-right-container': !this.isleftexpanded,'expanded-right-container': true}" ref="rightContainer">
 			<header class="rig-container"/>
+			<transition name="el-zoom-in-top">
+				<section v-show="headerShow" class="show-header" :class="{'unexpand-show-header': !this.isleftexpanded}">
+						<span>{{headeName}}</span>
+				</section>
+			</transition>
 			<transition :name="routetran">
 				<router-view/>
 			</transition>
@@ -42,7 +46,9 @@ export default {
   data () {
     return {
 			isleftexpanded: true,
-			routetran: "slide-right"
+			headerShow: false,
+			routetran: "slide-right",
+			headeName: 'my blog'
     }
   },
   methods: {
@@ -51,18 +57,15 @@ export default {
 		}
 	},
 	mounted() {
+		let appDoc = document.getElementById('app');
+		window.addEventListener('scroll',()=>{
+			(-appDoc.getBoundingClientRect().top > 200) ? this.headerShow = true : this.headerShow = false;
+		})
   },
 	watch: {
     $route(to, from) {
-      const toDepth = to.path.split("/").length;
-      const fromDepth = from.path.split("/").length;
-      if (to.path == "/") {
-        this.routetran = "slide-right";
-      } else if (from.path == "/") {
-        this.routetran = "slide-left";
-      }else{
-        this.routetran = toDepth < fromDepth ? "slide-right" : "slide-left";
-      }
+			this.headeName = 'My ' + to.path.replace(/\//,'');
+			console.log(this.headeName, to.path)
     }
   }
 }

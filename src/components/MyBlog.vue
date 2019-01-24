@@ -1,40 +1,21 @@
 <template>
   <div class="hello">
-    <div>my blog</div>
-    <div>jin hua</div><div>jin hua</div><div>jin hua</div>
-    <div>jin hua</div><div>jin hua</div><div>jin hua</div>
-    <div>jin hua</div><div>jin hua</div><div>jin hua</div>
-    <div>jin hua</div><div>jin hua</div><div>jin hua</div>
-    <div>jin hua</div><div>jin hua</div><div>jin hua</div>
-    <div>jin hua</div><div>jin hua</div><div>jin hua</div>
-    <div>jin hua</div><div>jin hua</div><div>jin hua</div>
-    <div>jin hua</div><div>jin hua</div><div>jin hua</div><div>jin hua</div><div>jin hua</div><div>jin hua</div>
-    <div>jin hua</div><div>jin hua</div><div>jin hua</div>
-    <div>jin hua</div><div>jin hua</div><div>jin hua</div>
-    <div>jin hua</div><div>jin hua</div><div>jin hua</div>
-    <div>jin hua</div><div>jin hua</div><div>jin hua</div>
-    <div>jin hua</div><div>jin hua</div><div>jin hua</div>
-    <div>jin hua</div><div>jin hua</div><div>jin hua</div>
-    <div>jin hua</div><div>jin hua</div><div>jin hua</div>
-    <div>jin hua</div><div>jin hua</div><div>jin hua</div>
-    <div>jin hua</div><div>jin hua</div><div>jin hua</div>
-    <div>jin hua</div><div>jin hua</div><div>jin hua</div>
-    <div>jin hua</div><div>jin hua</div><div>jin hua</div>
-    <div>jin hua</div><div>jin hua</div><div>jin hua</div>
-    <div>jin hua</div><div>jin hua</div><div>jin hua</div>
-    <div>jin hua</div><div>jin hua</div><div>jin hua</div>
-    <div>jin hua</div><div>jin hua</div><div>jin hua</div>
-    <div>jin hua</div><div>jin hua</div><div>jin hua</div>
+    <home-blog :message="'file:///Users/jintenghua/Desktop/gituse/myblog/src/assets/blog1.png'" />
   </div>
 </template>
 
 <script>
+import HomeBlog from './blog/HomeBlog.vue'
+
 export default {
   name: 'MyBlog',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
+  },
+  components:{
+    'home-blog': HomeBlog
   }
 }
 </script>
