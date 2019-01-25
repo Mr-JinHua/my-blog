@@ -1,28 +1,11 @@
+@left-bar-width: 240px;
+
 * {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 	text-decoration: none;
 }
-//路由切换动画效果
-.appView {
-  position: absolute;
-  width:100%;
-  transition: transform 0.3s ease-out;
-}
-.slide-left-enter{
-  transform: translate(100%, 0);
-}
-.slide-left-leave-active{
-  transform: translate(-50%, 0);
-}
-.slide-right-enter {
-  transform: translate(-50%, 0);
-}
-.slide-right-leave-active{
-  transform: translate(100%, 0);
-}
-
 body{
 	margin: 0!important;
 }
@@ -31,7 +14,7 @@ body{
 	left: 0;
 	top: 0;
 	bottom: 0;
-	width: 240px;
+	width: @left-bar-width;
 	overflow: hidden;
 	transition: .2s linear;
 	box-sizing: border-box;
@@ -41,6 +24,9 @@ body{
 	padding-top: 330px;
 }
 .expanded-left-bar-btn {
+	&:hover{
+		background: #ccc;
+	}
 	width: 100%;
 	height: 50px;
 	color: #41464b;
@@ -51,19 +37,15 @@ body{
 	transition: .2s ease;
 	cursor: pointer;
 	padding-left: 25px;
-}
-.expanded-left-bar-btn span{
-	margin-left: 15px;
-	font-family: "Microsoft YaHei";
-	font-size: bold;
-}
-.expanded-left-bar-btn .el-icon-use{
-	font-size: 25px;
-	color: #41464b;
-	
-}
-.expanded-left-bar-btn:hover {
-	background: #ccc;
+	span{
+		margin-left: 15px;
+		font-family: "Microsoft YaHei";
+		font-size: bold;
+	}
+	.el-icon-use{
+		font-size: 25px;
+		color: #41464b;
+	}
 }
 .left-bar-icon{
 	width: 120px;
@@ -83,7 +65,7 @@ body{
 }
 .expanded-bar-btn {
 	position: fixed;
-	left: 248px;
+	left: @left-bar-width;
 	top: 8px;
 	width: 30px;
 	height: 30px;
@@ -99,10 +81,10 @@ body{
 	transition: .6s linear;
 }
 .el-icon-menu-turn {
-	transform:rotate(135deg);
+	transform: rotate(135deg);
 }
 .expanded-right-container {
-	margin-left: 240px;
+	margin-left: @left-bar-width;
 	transition: .2s linear;
 	background: #f6f6f6;
 }
@@ -120,7 +102,7 @@ section.show-header {
 	height: 60px;
 	position: fixed;
 	top: 0;
-	left: 240px;
+	left: @left-bar-width;
 	right: 0;
 	transition: .2s linear;
 	display: flex;
