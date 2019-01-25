@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <div>
-        <img src="../../assets/blog1.png" alt="">
+        <img :src="background" alt="">
         <div>jin test</div>
     </div>
   </div>
@@ -10,10 +10,19 @@
 <script>
 export default {
   name: 'HomeBlog',
-  props:['message'],
+  props:{
+    message: String
+  },
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  computed:{
+    background(){
+      console.log(this.message)
+      return require(`${this.message}`)
+      // return require('../../assets/blog1.png')
     }
   }
 }

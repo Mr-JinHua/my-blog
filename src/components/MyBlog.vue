@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <home-blog :message="'file:///Users/jintenghua/Desktop/gituse/myblog/src/assets/blog1.png'" />
+    <home-blog :message="'../../assets/blog1.png'" />
   </div>
 </template>
 
