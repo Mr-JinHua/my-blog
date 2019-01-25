@@ -20,9 +20,7 @@ export default {
   },
   computed:{
     background(){
-      console.log(this.message)
-      return require(`${this.message}`)
-      // return require('../../assets/blog1.png')
+      return this.message;
     }
   }
 }

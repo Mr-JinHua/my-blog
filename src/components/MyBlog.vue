@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <home-blog :message="'../../assets/blog1.png'" />
+    <home-blog :message="'/static/blog1.png'" />
   </div>
 </template>
 
