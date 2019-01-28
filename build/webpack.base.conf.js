@@ -42,6 +42,17 @@ module.exports = {
         include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
       },
       {
+        test:/\.md$/,
+        use:[
+          {
+            loader: 'html-loader'
+          },
+          {
+            loader:'markdown-loader',
+          }
+        ]
+      },
+      {
         test: /\.less$/,
         loader: 'style-loader!css-loader!less-loader'
       },
