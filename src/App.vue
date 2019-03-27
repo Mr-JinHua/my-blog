@@ -5,11 +5,11 @@
 			<router-link to="/blog">
 				<div class="expanded-left-bar-btn">
 					<i class="el-icon-document el-icon-use" />
-					<span style="fontSize:20px">博客</span>
+					<span style="fontSize:20px">{{user}}博客</span>
 				</div>
 			</router-link>
 			<router-link to="/label">
-				<div class="expanded-left-bar-btn">
+				<div class="expanded-left-bar-btn" @click="loginUser">
 					<i class="el-icon-location el-icon-use" />
 					<span style="fontSize:20px">标签</span>
 				</div>
@@ -42,6 +42,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   data () {
     return {
@@ -50,14 +52,24 @@ export default {
 			routetran: "slide-right",
 			headeName: 'my blog'
     }
-  },
+	},
+	computed: {
+		...mapState([
+			'user'
+		])
+	},
   methods: {
   	useExpanded() {
-  		this.isleftexpanded = !this.isleftexpanded;
+  		this.isleftexpanded = !this.isleftexpanded
+		},
+		loginUser(){
+			// this.$store.state.todos.forEach(item=> item.done = true)
+			// console.log('loginUser', this.$store.getters.doneToDo)
+			this.$store.commit('login','chagne user')
 		}
 	},
 	mounted() {
-		let appDoc = document.getElementById('app');
+		let appDoc = document.getElementById('app')
 		window.addEventListener('scroll',()=>{
 			(-appDoc.getBoundingClientRect().top > 200) ? this.headerShow = true : this.headerShow = false;
 		})
